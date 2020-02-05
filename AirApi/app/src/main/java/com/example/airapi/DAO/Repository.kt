@@ -9,27 +9,21 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 
 
-class Repository(application: Application){
+class Repository private constructor(private val dao: ModelDao){
 
-//    companion object {
-//        private var instance: Repository?= null
-//
-//        fun getInstance(dao: ModelDao): Repository {
-//            if (instance == null)
-//                instance = Repository(dao)
-//            return instance as Repository
-//        }
-//    }
+    companion object {
+        private var instance: Repository?= null
 
-    private val dao: ModelDao
-    private val allUsers: LiveData<List<User>>
-
-
-    init {
-        val database = AirDatabase.getInstance(application.applicationContext)
-        dao = database.dao()
-        allUsers = dao.getUsers()
+        fun getInstance(dao: ModelDao): Repository {
+            if (instance == null)
+                instance = Repository(dao)
+            return instance as Repository
+        }
     }
+
+//    fun addUser(user: User) {
+//        dao.addUser(user)
+//    }
 
 
     fun addUser(user: User) {

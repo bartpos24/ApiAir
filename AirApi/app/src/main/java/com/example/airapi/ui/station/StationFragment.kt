@@ -27,13 +27,13 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class StationFragment : Fragment() {
 
-    private lateinit var stationViewModel: StationViewModel
-    private lateinit var stationViewModelFactory: StationViewModelFactory
+    //private lateinit var stationViewModel: StationViewModel
+    //private lateinit var stationViewModelFactory: StationViewModelFactory
     private lateinit var stationAdapter: StationAdapter
     private lateinit var stationMenager: RecyclerView.LayoutManager
     private lateinit var recyclerView: RecyclerView
 
-    private lateinit var dao: ModelDao
+    //private lateinit var dao: ModelDao
 
     var airs: List<Model.Stations> = emptyList()
 
@@ -45,9 +45,9 @@ class StationFragment : Fragment() {
         val retrofit = Retrofit.Builder().baseUrl("http://api.gios.gov.pl/pjp-api/rest/")
             .addConverterFactory(GsonConverterFactory.create()).build()
         val api = retrofit.create(ApiService::class.java)
-        val repository = Repository.getInstance(dao)
-        stationViewModelFactory = StationViewModelFactory(repository)
-        val stationViewModel = ViewModelProviders.of(this, stationViewModelFactory).get(StationViewModel::class.java)
+        //val repository = Repository.getInstance(dao)
+        //stationViewModelFactory = StationViewModelFactory(repository)
+        //stationViewModel = ViewModelProviders.of(this, stationViewModelFactory).get(StationViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_station, container, false)
         stationMenager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         stationAdapter = StationAdapter(airs) {
@@ -74,9 +74,9 @@ class StationFragment : Fragment() {
 
         val textView: TextView = root.findViewById(R.id.text_station)
 
-        stationViewModel.text.observe(this, Observer {
-            textView.text = it
-        })
+//        stationViewModel.text.observe(this, Observer {
+//            textView.text = it
+//        })
 
         return root
     }

@@ -31,11 +31,11 @@ class AddUserFragment : Fragment(){
         savedInstanceState: Bundle?
     ): View? {
 
-        database = Repository(context)
+
         val root = inflater.inflate(R.layout.fragment_user_add, container, false)
 
 
-        addUserViewModelFactory = AddUserViewModelFactory(database)
+        //addUserViewModelFactory = AddUserViewModelFactory(database)
         addUserViewModel = ViewModelProviders.of(this, addUserViewModelFactory).get(AddUserViewModel::class.java)
 
         val button: Button = root.findViewById(R.id.button_add)

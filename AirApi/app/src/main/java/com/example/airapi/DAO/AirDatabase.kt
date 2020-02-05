@@ -8,7 +8,7 @@ import com.example.airapi.models.User
 
 @Database(entities = [User::class], version = 2, exportSchema = false)
 abstract class AirDatabase : RoomDatabase() {
-    abstract fun dao(): ModelDao
+    //abstract fun dao(): ModelDao
 
     companion object {
         @Volatile

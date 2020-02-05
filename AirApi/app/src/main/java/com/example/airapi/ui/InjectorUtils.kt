@@ -6,7 +6,7 @@ import com.example.airapi.ui.user.AddUserViewModelFactory
 
 object InjectorUtils {
 //    fun provideUserViewModelFactory(): AddUserViewModelFactory {
-//        val repository = Repository.getInstance(AirDatabase.getInstance().dao())
+//        val repository = Repository.getInstance(AirDatabase.getInstance())
 //        return AddUserViewModelFactory(repository)
 //    }
 }
